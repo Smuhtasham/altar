@@ -1,5 +1,5 @@
 "use client";
-import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/react";
+import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from "motion/react";
 import React from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 
@@ -12,8 +12,8 @@ const Header: React.FC = () => {
   });
 
   // Define the transformations for scale, text size, and background color
-  const scale = useTransform(scrollY, [150, 280], [-1, -250]);
-  const textSize = useTransform(scrollY, [150, 280], [10, 3]);
+  const scale = useSpring(useTransform(scrollY, [150, 280], [-1, -250]), { stiffness: 80, damping: 25 });
+  const textSize = useSpring(useTransform(scrollY, [150, 280], [10, 2.5]), { stiffness: 80, damping: 25 });
   const bgColor = useTransform(scrollY, [0, 250], ["rgba(0,0,0,0)", "rgba(255,255,255,1)"]);
 
   return (
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         <div className="flex gap-2 items-center">
           <HiMenuAlt4 size={30} /> Menu
         </div>
-        <div className={`flex justify-center top-[300px] ml-12 items-center absolute inset-0 text-white font-bold`}>
+        <div className={`flex justify-center top-[300px] ml-12 items-center absolute inset-0 text-white font-medium`}>
           <motion.div
             style={{
               translateY: scale,
