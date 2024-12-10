@@ -1,39 +1,78 @@
 "use client";
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from "motion/react";
-import React from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
+import MenuPopover from "../Main/MenuPopover";
 
 const Header: React.FC = () => {
   const { scrollY } = useScroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeadingScrolled, setIsHeadingScrolled] = useState(false);
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Define the motion value event (can be omitted if unused)
-  const bg1 = useMotionValueEvent(scrollY, "change", (val: number) => {
-    // Event callback if you want to use 'val' later
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      setIsHeadingScrolled(window.scrollY > 280);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const bgColor = isScrolled ? "white" : "transparent";
+  const border = isScrolled ? "black" : "white";
+  const textColor = isScrolled ? "black" : "white";
+  const headingColor = isHeadingScrolled ? "black" : "white";
+
+  // Transformations for scaling
+  const scale = useSpring(useTransform(scrollY, [150, 280], [-1, -250]), {
+    stiffness: 80,
+    damping: 25,
+  });
+  const textSize = useSpring(useTransform(scrollY, [150, 280], [10, 2.5]), {
+    stiffness: 80,
+    damping: 25,
   });
 
-  // Define the transformations for scale, text size, and background color
-  const scale = useSpring(useTransform(scrollY, [150, 280], [-1, -250]), { stiffness: 80, damping: 25 });
-  const textSize = useSpring(useTransform(scrollY, [150, 280], [10, 2.5]), { stiffness: 80, damping: 25 });
-  const bgColor = useTransform(scrollY, [0, 250], ["rgba(0,0,0,0)", "rgba(255,255,255,1)"]);
-
   return (
-    <div className={`fixed w-full z-50 text-white`}>
+    <motion.div
+      style={{
+        backgroundColor: bgColor,
+        color: textColor,
+        width: "100%",
+        position: "fixed",
+        zIndex: "50",
+        transition: "background-color 0.8s ease, color 1s ease",
+      }}
+    >
       <div className="flex items-center font-semibold justify-between text-[14px] h-[80px] w-[90%] m-auto">
-        <div className="flex gap-2 items-center">
-          <HiMenuAlt4 size={30} /> Menu
+        <div onClick={()=>setIsMenuOpen(true)} className="flex gap-2 cursor-pointer items-center">
+          <HiMenuAlt4 size={30}/> Menu
         </div>
-        <div className={`flex justify-center top-[300px] ml-12 items-center absolute inset-0 text-white font-medium`}>
+        <div className="flex justify-center top-[300px] ml-12 items-center absolute inset-0 font-medium">
           <motion.div
             style={{
               translateY: scale,
               scale: textSize,
+              color: headingColor,
+              transition: "color 1s ease",
             }}
           >
             ALTAR
           </motion.div>
         </div>
         <div>
-          <button className="px-2 py-1 border border-white">RESERVE</button>
+          <button
+            className="px-2 py-1"
+            style={{ border: `1px solid ${border}`, transition: "border-color 1s ease" }}
+          >
+            RESERVE
+          </button>
         </div>
       </div>
 
@@ -47,7 +86,8 @@ const Header: React.FC = () => {
         </div>
         <div className="w-[2px]"></div>
       </div>
-    </div>
+      <MenuPopover isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+    </motion.div>
   );
 };
 
