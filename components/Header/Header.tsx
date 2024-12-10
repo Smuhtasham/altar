@@ -24,7 +24,7 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const bgColor = isScrolled ? "white" : "transparent";
+  const bgColor = isScrolled ? "#faf8f0" : "transparent";
   const border = isScrolled ? "black" : "white";
   const textColor = isScrolled ? "black" : "white";
   const headingColor = isHeadingScrolled ? "black" : "white";

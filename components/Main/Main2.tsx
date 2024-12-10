@@ -11,7 +11,7 @@ export const Section = () => {
         fontSize: "3.5vw",
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "white",
+        backgroundColor: "#faf8f0",
         alignItems: "center",
         justifyContent: "center",
         color: "white",
@@ -29,7 +29,7 @@ export const Section = () => {
 };
 export const Section1 = () => {
   const { scrollY } = useScroll();
-  const imageHeight = useSpring(useTransform(scrollY, [700, 900], [700, 800]), {
+  const imageHeight = useSpring(useTransform(scrollY, [700, 900], [600, 800]), {
     stiffness: 60,
     damping: 25,
   });
@@ -49,7 +49,7 @@ export const Section1 = () => {
       }}
     >
       <img src="04.png" className="w-full h-full object-cover" alt="" />
-      <p className="absolute top-10 text-[16px]">/ ENCOUNTER</p>
+      <p className="absolute top-24 text-[16px]">/ ENCOUNTER</p>
       <h2 className="absolute text-[56px] font-bold w-[400px]">Redefining the future of art</h2>
     </motion.div>
   );
@@ -70,7 +70,7 @@ export const Section2 = () => {
         position: "sticky",
         top: 0,
         height: "100vh",
-        backgroundColor: "white",
+        backgroundColor: "#faf8f0",
       }}
     >
       <div className="flex justify-center py-40 items-center w-[90%] m-auto">
@@ -117,7 +117,7 @@ export const Section3 = () => {
         position: "sticky",
         top: 0,
         height: "100vh",
-        backgroundColor: "white",
+        backgroundColor: "#faf8f0",
       }}
     >
       <div className="flex justify-center py-28 items-center w-[90%] m-auto">
