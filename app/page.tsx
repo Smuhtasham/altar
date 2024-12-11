@@ -6,7 +6,9 @@ import { Section, Section1, Section2, Section3, Section4, Section5 } from "../co
 export default function Home() {
   return (
     <>
+    <header>
     <Header/>
+    </header>
     <Main/>
     <main className="relative h-[650vh] lg:[600vh]">
       <Section/>
@@ -16,6 +18,7 @@ export default function Home() {
         <Section4 />
         <Section5 />
       </main>
+      
     <Footer/>
     </>
   );

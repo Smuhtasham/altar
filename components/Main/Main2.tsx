@@ -35,20 +35,23 @@ export const Section1 = () => {
   });
   return (
     <motion.div
-      style={{
-        position: "sticky",
-        top: 0,
-        height: imageHeight,
-        fontSize: "3.5vw",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "white",
-        paddingBottom: "10vh",
-      }}
+    style={{
+      position: "sticky",
+      top: 0,
+      height: imageHeight,
+      fontSize: "3.5vw",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "white",
+      paddingBottom: "10vh",
+      backgroundImage: "url('/04.png')",
+      backgroundSize: "cover", 
+      backgroundPosition: "center", 
+      backgroundRepeat: "no-repeat", 
+    }}
     >
-      <img src="04.png" className="w-full h-full object-cover" alt="" />
       <p className="absolute top-24 text-[16px]">/ ENCOUNTER</p>
       <h2 className="absolute w-[70%] text-center text-[30px] lg:text-[56px] font-bold lg:w-[400px]">Redefining the future of art</h2>
     </motion.div>
@@ -58,12 +61,13 @@ export const Section1 = () => {
 export const Section2 = () => {
   const { scrollY } = useScroll();
   const imageHeight = useSpring(
-    useTransform(scrollY, [1600, 1800], [200, 360]),
+    useTransform(scrollY, [1600, 1900], [100, 360]), // Adjust the height range
     {
       stiffness: 60,
       damping: 25,
     }
   );
+
   return (
     <motion.div
       style={{
@@ -73,15 +77,19 @@ export const Section2 = () => {
       }}
     >
       <div className="h-[120vh] lg:h-[100vh] flex flex-col gap-4 lg:flex-row lg:gap-0 lg:justify-center py-20 lg:py-40 items-center w-[90%] m-auto">
-        <div className="w-full lg:w-[50%]">
+        <div className="w-full lg:w-[50%] relative">
           <motion.div
             style={{
-              height: imageHeight,
+              position: "absolute",
+              top:-160, // Keep the bottom of the image fixed
+              height: imageHeight, // Dynamically changing height from top
+              width: "100%",
+              overflow: "hidden", // Hide any overflowing part of the image
             }}
           >
             <img
               src="/24.png"
-              className="w-[300px] lg:w-[500px] h-full lg:h-full object-cover"
+              className="w-[300px] lg:w-[500px] object-cover"
               alt="Section 2 Image"
             />
           </motion.div>
@@ -101,10 +109,11 @@ export const Section2 = () => {
   );
 };
 
+
 export const Section3 = () => {
   const { scrollY } = useScroll();
   const imageHeight = useSpring(
-    useTransform(scrollY, [2200, 2400], [200, 360]),
+    useTransform(scrollY, [2200, 2500], [150, 360]),
     {
       stiffness: 60,
     }
@@ -152,7 +161,11 @@ export const Section3 = () => {
         <div className="w-full hidden lg:flex lg:w-[50%]">
           <motion.div
             style={{
-              height: imageHeight,
+              position: "absolute",
+              top:160, // Keep the bottom of the image fixed
+              height: imageHeight, // Dynamically changing height from top
+              width: "50%",
+              overflow: "hidden", // Hide any overflowing part of the image
             }}
           >
             <img

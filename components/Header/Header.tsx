@@ -50,6 +50,7 @@ const Header: React.FC = () => {
   });
 
   return (<>
+  <header>
     <motion.div
     style={{
       backgroundColor: bgColor,
@@ -115,7 +116,7 @@ const Header: React.FC = () => {
       </div>
       <MenuPopover isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
     </motion.div>
-    
+    </header>
     </>  
 );
 };
