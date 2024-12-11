@@ -1,12 +1,5 @@
 "use client";
 import React from "react";
-import {
-  motion,
-  MotionConfig,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "motion/react";
 
 const Main = () => {
   return (
