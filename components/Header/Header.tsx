@@ -32,11 +32,11 @@ const Header: React.FC = () => {
   const headerHeight = isHeadingScrolled ? "70px" : "110px";
 
   // Transformations for scaling
-  const scale = useSpring(useTransform(scrollY, [150, 280], [-1, -280]), {
+  const scale = useSpring(useTransform(scrollY, [150, 280], [30, -270]), {
     stiffness: 80,
     damping: 25,
   });
-  const textSize = useSpring(useTransform(scrollY, [150, 280], [10, 2.5]), {
+  const textSize = useSpring(useTransform(scrollY, [150, 280], [12, 3]), {
     stiffness: 80,
     damping: 25,
   });
@@ -79,7 +79,7 @@ const Header: React.FC = () => {
               transition: "color 1s ease",
             }}
           >
-            ALTAR
+             <img src="/casa-altar.png" className="w-full h-[40px]" alt="" />
           </motion.div>
         </div>
         <div className="flex lg:hidden justify-center top-[320px] items-center absolute inset-0 font-medium">
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
               transition: "color 1s ease",
             }}
           >
-            ALTAR
+            <img src="/casa-altar.png" alt="" />
           </motion.div>
         </div>
         <div>
