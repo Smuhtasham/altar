@@ -8,7 +8,7 @@ export default function Home() {
     <>
     <Header/>
     <Main/>
-    <main className="relative h-[600vh]">
+    <main className="relative h-[650vh] lg:[600vh]">
       <Section/>
         <Section1 />
         <Section2/>

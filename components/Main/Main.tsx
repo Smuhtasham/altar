@@ -4,17 +4,19 @@ import React from "react";
 const Main = () => {
   return (
     <>
-      <div className="h-[100vh] w-full relative">
+      <div className="h-screen w-full relative">
+        {/* Background Image */}
         <img
           src="05.webp"
           className="w-full h-full object-cover"
           alt="Cover Image"
         />
-        <p className="text-[18px] absolute font-semibold bottom-6 left-[45%]">
+        
+        {/* Responsive Text */}
+        <p className="absolute text-center font-semibold text-[18px] bottom-6 left-1/2 transform -translate-x-1/2 md:text-[22px] lg:text-[28px]">
           ALTAR TULUM
         </p>
       </div>
-      
     </>
   );
 };

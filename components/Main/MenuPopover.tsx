@@ -27,7 +27,7 @@ const MenuPopover: React.FC<MenuPopoverProps> = ({
         style={{
           position: "absolute",
           left: 0,
-          top: -140,
+          top: -160,
           backgroundColor: "white",
           boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)", // Equivalent to `shadow-lg`
           borderRadius: "0.5rem", // Equivalent to `rounded-lg`
@@ -36,7 +36,7 @@ const MenuPopover: React.FC<MenuPopoverProps> = ({
           pointerEvents: isMenuOpen ? "auto" : "none",
         }}
       >
-        <div className="flex items-center font-semibold justify-between text-[14px] h-[80px] w-[90%] m-auto">
+        <div className="flex items-center pt-[100px] lg:pt-6 font-semibold justify-between text-[14px] !h-[100px] w-[90%] m-auto">
           <div
             onClick={() => setIsMenuOpen(false)}
             className="flex gap-2 items-center cursor-pointer"
@@ -56,7 +56,7 @@ const MenuPopover: React.FC<MenuPopoverProps> = ({
             </button>
           </div>
         </div>
-        <div className="flex py-10 w-[90%] m-auto justify-between">
+        <div className="flex py-20 lg:py-10 w-[90%] m-auto justify-between">
           <div className="flex flex-col text-[14px] font-semibold gap-10">
             <div className="flex flex-col gap-4">
               <p className="cursor-pointer">BODRUM</p>
