@@ -1,7 +1,5 @@
-"use client";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
+import React from "react";
 import { RiCloseLargeLine } from "react-icons/ri";
 
 interface MenuPopoverProps {
@@ -29,10 +27,10 @@ const MenuPopover: React.FC<MenuPopoverProps> = ({
           left: 0,
           top: -160,
           backgroundColor: "white",
-          boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)", // Equivalent to `shadow-lg`
-          borderRadius: "0.5rem", // Equivalent to `rounded-lg`
-          padding: "1rem", // Equivalent to `p-4`
-          width: "100%", // Equivalent to `w-56`
+          boxShadow: "0 10px 15px rgba(0, 0, 0, 0.1)",
+          borderRadius: "0.5rem",
+          padding: "1rem",
+          width: "100%",
           pointerEvents: isMenuOpen ? "auto" : "none",
         }}
       >
