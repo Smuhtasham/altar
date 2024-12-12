@@ -38,9 +38,9 @@ export const Section2: React.FC = () => {
           backgroundColor: "#faf8f0",
         }}
       >
-        <div className="h-[100vh] lg:h-[90vh] justify-between text-black flex flex-col lg:flex-row gap-4 lg:gap-0 lg:pt-20 w-[80%] m-auto">
+        <div className="h-[100vh] lg:h-[90vh] justify-between text-black flex pt-20 flex-col lg:flex-row gap-4 lg:gap-0 lg:pt-20 w-[80%] lg:m-auto">
           {/* Food Categories */}
-          <div className="w-[60%]">
+          <div className="lg:w-[60%] w-[20%]">
             <table className=" w-[100%] text-left border-collapse">
               <thead>
                 <tr className="border-b-2 border-gray-300">
@@ -135,16 +135,16 @@ export const Section2: React.FC = () => {
   
           {/* Image Display */}
             <motion.div
-              key={currentImage} // This ensures the animation triggers on image change
+              key={currentImage}
               initial={{ scale: 0.6, opacity: 0.5 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
               style={{
                 width: "30%",
                 position: "absolute",
-                top: "5rem", // Converted `top-20` (20 * 0.25rem)
-                right: 0,
-                gap: "0.5rem", // Converted `gap-2` (2 * 0.25rem)
+                top: "6rem", 
+                right: 10,
+                gap: "0.5rem",
               }}
             >
               <Image

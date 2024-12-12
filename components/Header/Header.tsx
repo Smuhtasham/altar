@@ -44,7 +44,7 @@ const Header: React.FC = () => {
     stiffness: 80,
     damping: 25,
   });
-  const SmallTextSize = useSpring(useTransform(scrollY, [150, 280], [7, 2]), {
+  const SmallTextSize = useSpring(useTransform(scrollY, [150, 280], [2, 0.3]), {
     stiffness: 80,
     damping: 25,
   });

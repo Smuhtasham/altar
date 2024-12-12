@@ -10,7 +10,7 @@ export const Section4 = () => {
           zIndex: 3,
         }}
       >
-        <div className="flex absolute lg:left-[22%] top-[20%] lg:top-[32%] gap-6 flex-col lg:w-[60%] justify-center items-center">
+        <div className="flex absolute lg:left-[22%] left-[12%] top-[50%] lg:top-[32%] gap-6 flex-col lg:w-[60%] justify-center items-center">
           <h2 className="text-[40px] lg:text-[80px] font-semibold">
             ALTAR TULUM
           </h2>

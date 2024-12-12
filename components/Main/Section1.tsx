@@ -23,9 +23,9 @@ export const Section1 = () => {
           overflow: "hidden",
         }}
       >
-        <div className="pt-8">
+        <div className="py-4">
           <Swiper
-            slidesPerView={1.4}
+            slidesPerView={1.2}
             spaceBetween={20}
             pagination={{
               clickable: true,

@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Header />
       <Main />
-      <main className="relative h-[470vh] lg:[400vh]">
+      <main className="relative h-[490vh] lg:h-[470vh]">
         <Section />
         <Section1 />
         <Section2 />
