@@ -7,6 +7,7 @@ import { Pagination, Scrollbar } from "swiper/modules";
 
 import "swiper/css/pagination";
 import { useState } from "react";
+import Image from "next/image";
 
 export const Section = () => {
   return (
@@ -106,16 +107,7 @@ export const Section2: React.FC = () => {
 
   // Mapping categories to images
   const images: Record<
-    | "1"
-    | "2"
-    | "3"
-    | "4"
-    | "5"
-    | "6"
-    | "7"
-    | "8"
-    | "9"
-    | "10",
+    "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10",
     string
   > = {
     "1": "/21.png",
@@ -169,7 +161,7 @@ export const Section2: React.FC = () => {
               >
                 <td className="py-2 px-4">Coffee & Breakfast</td>
                 <td className="py-2 px-4 hover:underline">
-                <p>French Bakery</p>
+                  <p>French Bakery</p>
                 </td>
               </tr>
               <tr
@@ -239,14 +231,28 @@ export const Section2: React.FC = () => {
         </div>
 
         {/* Image Display */}
-        <div className="w-[30%] absolute top-20 right-0 gap-2">
-          <img
-            src={currentImage}
-            className="w-[300px] h-[400px] object-cover"
-            alt="Category"
-          />
+          <motion.div
+            key={currentImage} // This ensures the animation triggers on image change
+            initial={{ scale: 0.6, opacity: 0.5 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              width: "30%",
+              position: "absolute",
+              top: "5rem", // Converted `top-20` (20 * 0.25rem)
+              right: 0,
+              gap: "0.5rem", // Converted `gap-2` (2 * 0.25rem)
+            }}
+          >
+            <Image
+              src={currentImage}
+              className="w-[300px] h-[400px] object-cover"
+              width={500}
+              height={500}
+              alt="Category"
+            />
+          </motion.div>
         </div>
-      </div>
     </motion.div>
   );
 };
@@ -361,16 +367,16 @@ export const Section4 = () => {
 export const Section5 = () => {
   return (
     <motion.div
-    style={{
-      position: "sticky",
-      top: 0,
-      backgroundImage: "url('/53.png')",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover", // Ensures the image covers the full width and height
-      backgroundPosition: "center", // Centers the image
-      zIndex: 5,
-      width: "100%",
-    }}
+      style={{
+        position: "sticky",
+        top: 0,
+        backgroundImage: "url('/53.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover", // Ensures the image covers the full width and height
+        backgroundPosition: "center", // Centers the image
+        zIndex: 5,
+        width: "100%",
+      }}
     >
       <div className="h-[130vh] lg:h-[100vh]">
         <div className="flex absolute lg:top-[25%] top-[15%] gap-6 flex-col w-full justify-center items-center">
