@@ -361,14 +361,16 @@ export const Section4 = () => {
 export const Section5 = () => {
   return (
     <motion.div
-      style={{
-        position: "sticky",
-        top: 0,
-        backgroundImage: "url('/53.png')",
-        backgroundRepeat: "no-repeat",
-        zIndex: 5,
-        width:"100%",
-      }}
+    style={{
+      position: "sticky",
+      top: 0,
+      backgroundImage: "url('/53.png')",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover", // Ensures the image covers the full width and height
+      backgroundPosition: "center", // Centers the image
+      zIndex: 5,
+      width: "100%",
+    }}
     >
       <div className="h-[130vh] lg:h-[100vh]">
         <div className="flex absolute lg:top-[25%] top-[15%] gap-6 flex-col w-full justify-center items-center">
