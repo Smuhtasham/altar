@@ -367,6 +367,7 @@ export const Section5 = () => {
         backgroundImage: "url('/53.png')",
         backgroundRepeat: "no-repeat",
         zIndex: 5,
+        width:"100%",
       }}
     >
       <div className="h-[130vh] lg:h-[100vh]">
