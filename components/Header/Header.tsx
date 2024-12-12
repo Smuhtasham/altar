@@ -10,12 +10,14 @@ const Header: React.FC = () => {
   const [isHeadingScrolled, setIsHeadingScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogo, setIsLogo] = useState(false);
+  const [isText, setIsText] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       setIsHeadingScrolled(window.scrollY > 280);
-      setIsLogo(window.scrollY > 280);
+      setIsLogo(window.scrollY > 300);
+      setIsText(window.scrollY > 270);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -32,7 +34,7 @@ const Header: React.FC = () => {
   const headingColor = isHeadingScrolled ? "black" : "white";
   const headerHeight = isHeadingScrolled ? "70px" : "110px";
   const logo = isLogo ? "flex" : "hidden";
-  const text = isLogo ? "hidden": "flex"
+  const text = isText ? "hidden": "flex"
 
   // Transformations for scaling
   const scale = useSpring(useTransform(scrollY, [90, 280], [50, -270]), {
@@ -100,7 +102,7 @@ const Header: React.FC = () => {
               </div>
             </div>
             <div
-              className={`${text} lg:flex justify-center top-[320px] items-center absolute inset-0 font-medium`}
+              className={`${text} lg:hidden justify-center top-[320px] items-center absolute inset-0 font-medium`}
             >
               <motion.div
                 style={{
