@@ -8,13 +8,14 @@ const Header: React.FC = () => {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeadingScrolled, setIsHeadingScrolled] = useState(false);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLogo, setIsLogo] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       setIsHeadingScrolled(window.scrollY > 280);
+      setIsLogo(window.scrollY > 280);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,9 +31,11 @@ const Header: React.FC = () => {
   const textColor = isScrolled ? "black" : "white";
   const headingColor = isHeadingScrolled ? "black" : "white";
   const headerHeight = isHeadingScrolled ? "70px" : "110px";
+  const logo = isLogo ? "flex" : "hidden";
+  const text = isLogo ? "hidden": "flex"
 
   // Transformations for scaling
-  const scale = useSpring(useTransform(scrollY, [150, 280], [30, -270]), {
+  const scale = useSpring(useTransform(scrollY, [90, 280], [50, -270]), {
     stiffness: 80,
     damping: 25,
   });
@@ -44,7 +47,7 @@ const Header: React.FC = () => {
     stiffness: 80,
     damping: 25,
   });
-  const SmallTextSize = useSpring(useTransform(scrollY, [150, 280], [2, 0.3]), {
+  const SmallTextSize = useSpring(useTransform(scrollY, [150, 280], [7, 0.1]), {
     stiffness: 80,
     damping: 25,
   });
@@ -89,16 +92,25 @@ const Header: React.FC = () => {
                 <img src="/casa-altar.png" className="w-full h-[40px]" alt="" />
               </motion.div>
             </div>
-            <div className="flex lg:hidden justify-center top-[320px] items-center absolute inset-0 font-medium">
+            <div
+              className={`${logo} lg:hidden justify-center -top-4 items-center absolute inset-0 font-medium`}
+            >
+              <div className="w-[40px] h-[40px]">
+                <img src="/altarlogo.png" alt="" />
+              </div>
+            </div>
+            <div
+              className={`${text} lg:flex justify-center top-[320px] items-center absolute inset-0 font-medium`}
+            >
               <motion.div
                 style={{
                   translateY: smallScale,
                   scale: SmallTextSize,
-                  color: headingColor,
+                  color: "white",
                   transition: "color 1s ease",
                 }}
               >
-                <img src="/casa-altar.png" alt="" />
+               ALTAR
               </motion.div>
             </div>
             <div>
@@ -108,7 +120,10 @@ const Header: React.FC = () => {
                   border: `1px solid ${border}`,
                   transition: "border-color 1s ease",
                 }}
-                onClick={() => (window.location.href = "https://www.airbnb.com/rooms/589202359470803966")} // Replace with your link
+                onClick={() =>
+                  (window.location.href =
+                    "https://www.airbnb.com/rooms/589202359470803966")
+                } // Replace with your link
               >
                 RESERVE
               </button>
